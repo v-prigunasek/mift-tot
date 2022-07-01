@@ -4,11 +4,8 @@ import "@pnp/sp/webs";
 import "@pnp/sp/lists";
 import siteconfig from "../provisioning/ProvisioningAssets.json";
 import * as stringsConstants from "../constants/strings";
+import { IRectangle } from '@fluentui/react/lib/Utilities';
 
-
-interface ICommonServicesState {
-
-}
 let rootSiteURL: string;
 export default class CommonServices {
 
@@ -31,6 +28,22 @@ export default class CommonServices {
     });
   }
 
+  //Method to get the pixel height for a given page
+  public getPageHeight = (rowHeight: number, ROWS_PER_PAGE: number): number => {
+    return rowHeight * ROWS_PER_PAGE;
+  }
+
+  //Method to get how many items to render per page from specified index
+  public getItemCountForPage = (itemIndex: number, surfaceRect: IRectangle, MAX_ROW_HEIGHT: number, ROWS_PER_PAGE: number) => {
+    let columnCount: number;
+    let rowHeight: number;
+    if (itemIndex === 0) {
+      columnCount = Math.ceil(surfaceRect.width / MAX_ROW_HEIGHT);
+      rowHeight = Math.floor(surfaceRect.width / columnCount);
+    }
+    return { itemCountForPage: columnCount * ROWS_PER_PAGE, columnCount: columnCount, rowHeight: rowHeight };
+  }
+
   //Get list items based on only a filter
   public async getItemsWithOnlyFilter(listname: string, filterparametres: any): Promise<any> {
     var items: any[] = [];
@@ -44,7 +57,7 @@ export default class CommonServices {
     items = await sp.web.lists.getByTitle(listname).items.filter(filterparametres).orderBy(descColumn, false)();
     return items;
   }
-  
+
   //Get all items from a list
   public async getAllListItems(listname: string): Promise<any> {
     var items: any[] = [];

@@ -1,25 +1,24 @@
-import * as React from "react";
-import { sp } from "@pnp/sp";
-import "@pnp/sp/webs";
-import "@pnp/sp/lists";
-import "@pnp/sp/items";
 import { Label } from "@fluentui/react/lib/Label";
+import { sp } from "@pnp/sp";
+import "@pnp/sp/items";
+import "@pnp/sp/lists";
+import "@pnp/sp/webs";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { ThemeStyle } from "msteams-ui-styles-core";
+import * as React from "react";
+import Col from "react-bootstrap/Col";
 import Media from "react-bootstrap/Media";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "../scss/TOTLandingPage.module.scss";
-import siteconfig from "../provisioning/ProvisioningAssets.json";
+import * as LocaleStrings from 'TotHomeWebPartStrings';
 import commonServices from "../common/CommonServices";
 import * as stringsConstants from "../constants/strings";
-import TOTLeaderBoard from "./TOTLeaderBoard";
-import TOTMyDashboard from "./TOTMyDashboard";
+import siteconfig from "../provisioning/ProvisioningAssets.json";
+import styles from "../scss/TOTLandingPage.module.scss";
+import DigitalBadge from "./DigitalBadge";
 import TOTCreateTournament from "./TOTCreateTournament";
 import TOTEnableTournament from "./TOTEnableTournament";
-import Navbar from "react-bootstrap/Navbar";
-import * as LocaleStrings from 'TotHomeWebPartStrings';
-import DigitalBadge from "./DigitalBadge";
-import { ThemeStyle } from "msteams-ui-styles-core";
+import TOTLeaderBoard from "./TOTLeaderBoard";
+import TOTMyDashboard from "./TOTMyDashboard";
 import TOTReport from "./TOTReport";
 
 export interface ITOTLandingPageProps {
@@ -68,11 +67,11 @@ class TOTLandingPage extends React.Component<
       tournamentReport: false,
     };
     commonService = new commonServices(this.props.context, this.props.siteUrl);
-    this.redirectTotHome = this.redirectTotHome.bind(this);
   }
   public componentDidMount() {
     this.initialChecks();
   }
+
   //verify isTOTEnabled props, if already enabled then check admin role and active tournaments
   private async initialChecks() {
     try {
@@ -124,17 +123,6 @@ class TOTLandingPage extends React.Component<
         showSuccess: false,
       });
     }
-  }
-
-  //Onclick of header Redirect to TOT landing page
-  public redirectTotHome() {
-    this.setState({
-      leaderBoard: false,
-      createTournament: false,
-      manageTournament: false,
-      dashboard: false,
-      digitalBadge: false,
-    });
   }
 
   //Create tournament name look up field in Digital badge assets lib
@@ -289,8 +277,8 @@ class TOTLandingPage extends React.Component<
                     )}
                   </div>
                   <h5 className={styles.pageSubHeader}>{LocaleStrings.QuickLinksLabel}</h5>
-                  <Row className="mt-4">
-                    <Col sm={3} className={styles.imageLayout}>
+                  <Row xl={4} lg={4} md={4} sm={3} xs={2} className="mt-4">
+                    <Col xl={3} lg={3} md={3} sm={4} xs={6} className={styles.imageLayout}>
                       <Media
                         className={styles.cursor}
                         onClick={() =>
@@ -311,7 +299,7 @@ class TOTLandingPage extends React.Component<
                         </div>
                       </Media>
                     </Col>
-                    <Col sm={3} className={styles.imageLayout}>
+                    <Col xl={3} lg={3} md={3} sm={4} xs={6} className={styles.imageLayout}>
                       <Media
                         className={styles.cursor}
                         onClick={() =>
@@ -332,7 +320,7 @@ class TOTLandingPage extends React.Component<
                         </div>
                       </Media>
                     </Col>
-                    <Col sm={3} className={styles.imageLayout}>
+                    <Col xl={3} lg={3} md={3} sm={4} xs={6} className={styles.imageLayout}>
                       <Media
                         className={styles.cursor}
                         onClick={() => this.setState({ digitalBadge: !this.state.digitalBadge })}
@@ -357,8 +345,8 @@ class TOTLandingPage extends React.Component<
                   )}
 
                   {this.state.isAdmin && (
-                    <Row className="mt-4">
-                      <Col sm={3} className={styles.imageLayout}>
+                    <Row xl={4} lg={4} md={4} sm={3} xs={2} className="mt-4">
+                      <Col xl={3} lg={3} md={3} sm={4} xs={6} className={styles.imageLayout}>
                         <Media className={styles.cursor}>
                           <div className={styles.mb}>
                             <a
@@ -378,7 +366,7 @@ class TOTLandingPage extends React.Component<
                           </div>
                         </Media>
                       </Col>
-                      <Col sm={3} className={styles.imageLayout}>
+                      <Col xl={3} lg={3} md={3} sm={4} xs={6} className={styles.imageLayout}>
                         <Media
                           className={styles.cursor}
                           onClick={() =>
@@ -401,7 +389,7 @@ class TOTLandingPage extends React.Component<
                           </div>
                         </Media>
                       </Col>
-                      <Col sm={3} className={styles.imageLayout}>
+                      <Col xl={3} lg={3} md={3} sm={4} xs={6} className={styles.imageLayout}>
                         <Media
                           className={styles.cursor}
                           onClick={() =>
@@ -423,7 +411,7 @@ class TOTLandingPage extends React.Component<
                         </Media>
                       </Col>
 
-                      <Col sm={3} className={styles.imageLayout}>
+                      <Col xl={3} lg={3} md={3} sm={4} xs={6} className={styles.imageLayout}>
                         <Media className={styles.cursor}>
                           <div className={styles.mb}>
                             <a
@@ -441,7 +429,7 @@ class TOTLandingPage extends React.Component<
                           </div>
                         </Media>
                       </Col>
-                      <Col sm={3} className={styles.imageLayout}>
+                      <Col xl={3} lg={3} md={3} sm={4} xs={6} className={styles.imageLayout}>
                         <Media className={styles.cursor}>
                           <div className={styles.mb}>
                             <a
@@ -461,7 +449,7 @@ class TOTLandingPage extends React.Component<
                           </div>
                         </Media>
                       </Col>
-                      <Col sm={3} className={styles.imageLayout}>
+                      <Col xl={3} lg={3} md={3} sm={4} xs={6} className={styles.imageLayout}>
                         <Media
                           className={styles.cursor}
                           onClick={() =>

@@ -76,6 +76,7 @@ define([], function () {
     "CreateTournamentPageTitle": "Create Tournament",
     "CreateTournamentSuccessLabel": "Tournament created successfully.",
     "TournamentNameLabel": "Tournament Name",
+    "TournamentNamePlaceHolderLabel": "Tournament Name(Max 255 characters)",
     "TournamentNameErrorLabel": "Tournament Name is required.",
     "TournamentDescriptionLabel": "Tournament Description",
     "TournamentDescPlaceHolderLabel": "Tournament Description(Max 500 characters)",
@@ -84,8 +85,34 @@ define([], function () {
     "ActionErrorLabel": "Select atleast one action to create a tournament.",
     "CreateTournamentButton": "Create Tournament",
     "DuplicateTournamentNameError": "Tournament name already exists. Enter another name for tournament.",
-
-
+    "CreateTournamentsButton": "Create Tournaments",
+    "SingleTournamentLabel": "Single Tournament",
+    "MultipleTournamentLabel": "Multiple Tournament",
+    "MultiTournamentStep": "Step",
+    "MultiTournamentStep1LinkLabel": "Download Template",
+    "MultiTournamentStep1Text": " of sample file format",
+    "MultiTournamentStep2": "Add tournament details to the file by following guidelines",
+    "MultiTournamentStep3": "Upload the file",
+    "UploadFileButton": "Upload File",
+    "RemoveFileLabel": "Remove File",
+    "ImportSpinnerMessage": "Creating tournaments.....",
+    "ErrorMsgTournamentList": "An error occured while creating an item in Tournaments list. Correct the data and try again.",
+    "ErrorMsgActionsList": "An error occurred while creating an item in Actions list. Correct the data and try again.",
+    "ErrorMsgTournamentActionsList": "An error occured while creating an item in Tournament Actions list. Correct the data and try again.",
+    "LogMsgTournamentExists" : "Skipped, since the tournament already exists.",
+    "LogMsgDone": "Tournament created.",
+    "LogMsgInvalidTournamentName": "Skipped, since it doesn't have a valid Tournament Name.",
+    "LogMsgInvalidTemplate": "Skipped, since it is not a valid template.",
+    "LogMsgMultipleTournaments": "Skipped, since it has more than one Tournament Name.",
+    "LogMsgBlankSheet": "Skipped, since it is blank.",
+    "LogProgress":" Below is the progress:",   
+    "ImportRule1": "Do not modify the column headers in the template",
+    "ImportRule2": "Do not delete the columns in the template",
+    "ImportRule3": "Enter data in all the required(*) columns mentioned in the template",    
+    "ImportRule4": "Follow the character limit and type mentioned in the template for each column",    
+    "ImportRule5": "Enter data for only 1 tournament in each sheet as per the sample data provided",
+    "ImportRule6": "Only 10 tournaments can be created at a time",
+    "ImportRule7": "Ensure the Tournament Name is unique",
 
     //TOT Common    
     "TOTBreadcrumbLabel": "Tournament of Teams",
@@ -163,13 +190,13 @@ define([], function () {
     "NoRecordsinGridLabel": "No Records found!",
     "SearchPlaceholder": "Search by Participant's Name",
     "NoCompletedTournamentsMessage": "There is no completed tournament at the moment. Please check back later.",
-    "ReportsDropdownInfoIconText":"Report can be generated only for completed tournaments.",
+    "ReportsDropdownInfoIconText": "Report can be generated only for completed tournaments.",
     "RefreshIconInfoText": "Click refresh to see latest data",
 
     //Provisioning
-    "ProvisioningErrorMessage" : 'An issue has occured during the app setup. Please try setting up the app again.',
-    "ProvisioningSuccessMessage" : 'Tournament of Teams has been deployed successfully. Please refresh the app to continue.',
-    "SpinnerMessage" : "Setting up the App.....",
-    "ProvisioningSetupMessage" : "This process will take a few moments to complete. Please do not navigate away until you see the completed successfully message."
+    "ProvisioningErrorMessage": 'An issue has occured during the app setup. Please try setting up the app again.',
+    "ProvisioningSuccessMessage": 'Tournament of Teams has been deployed successfully. Please refresh the app to continue.',
+    "SpinnerMessage": "Setting up the App.....",
+    "ProvisioningSetupMessage": "This process will take a few moments to complete. Please do not navigate away until you see the completed successfully message."
   }
 });
