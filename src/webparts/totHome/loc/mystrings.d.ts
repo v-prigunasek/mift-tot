@@ -98,7 +98,9 @@ declare interface ITotHomeWebPartStrings {
   ErrorMsgActionsList: string;
   ErrorMsgTournamentActionsList: string;
   LogMsgTournamentExists: string;
+  LogMsgTournamentExists1: string;
   LogMsgDone: string;
+  LogMsgDone1: string;
   LogMsgInvalidTournamentName: string;
   LogMsgInvalidTemplate: string;
   LogMsgMultipleTournaments: string;
@@ -147,6 +149,12 @@ declare interface ITotHomeWebPartStrings {
   EndTournamentSuccessMessage: string;
   EnableTournamentSuccessMessage: string;
   CompleteTournamentSpinnerMessage: string;
+  EnableTournamentSpinnerMessage: string;
+  SearchActiveTournaments: string;
+  SearchPendingTournaments: string;
+  SelectAllLabel: string;
+  NoSearchResults: string;
+
 
   // TOT LeaderBoard & TOT My Dashboard
   NoActiveParticipantsMessage; string;

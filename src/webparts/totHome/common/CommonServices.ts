@@ -116,9 +116,37 @@ export default class CommonServices {
     return true;
   }
   //Update list item
-  public updateListItem(listName: string, data: any, id: string): Promise<any> {
+  public updateListItem(listName: string, data: any, id: any): Promise<any> {
     return sp.web.lists.getByTitle(listName).items.getById(parseInt(id)).update(data).then(i => {
       return true;
+    });
+  }
+
+  //Update multiple items
+  public async updateMultipleItems(listname: string, data: any, arrayOfIds: any): Promise<any> {
+    return new Promise<any>(async (resolve, reject) => {
+
+      try {
+        //Create object for batch
+        const batch = sp.web.createBatch();
+        //Get list context
+        const list = await sp.web.lists.getByTitle(listname);
+        const items = list.items.inBatch(batch);
+
+        for (let i = 0; i < arrayOfIds.length; i++) {
+          items.getById(parseInt(arrayOfIds[i])).inBatch(batch).update(data);
+        }
+        await batch.execute().then(() => {
+          resolve(true);
+        }).catch((error) => {
+          console.error("CommonServices_updateMultipleItems \n", error);
+          reject(false);
+        });
+      }
+      catch (error) {
+        console.error("CommonServices_updateMultipleItems \n", error);
+        reject(false);
+      }
     });
   }
   //create fields in SP lists
